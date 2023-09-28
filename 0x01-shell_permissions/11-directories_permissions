@@ -1,2 +1,2 @@
 #!/bin/bash
-chmos +x {}
+find . -type d -exec chmod +x {} +
