@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /ect/passwd | grep 'coco'
+cat /ect/passwd | grep 'root'
