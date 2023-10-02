@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -name -type d | wd -l
+find . -type d | wd -l
