@@ -1,2 +1,2 @@
 #!/bin/bash
-tail -n 1 <(head -n 3 icata)
+head -n 3 icata | tail -n 1
