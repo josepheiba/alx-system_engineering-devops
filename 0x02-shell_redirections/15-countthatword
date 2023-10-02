@@ -1,2 +1,2 @@
 #!/bin/bash
-cat -n /etc/passwd | grep 'bin'
+cat -n /etc/passwd | grep 'bin' | cut -b 5-6
