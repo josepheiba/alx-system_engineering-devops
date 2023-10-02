@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -printf '%f\n' | sort --version-sort -r | head -n 10
+ls -t | head -n 10
