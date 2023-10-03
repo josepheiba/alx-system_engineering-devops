@@ -1,0 +1,2 @@
+#!/bin/bash
+cut -f1,3 | sort -k 2 | cut -f1 | head -n 11
