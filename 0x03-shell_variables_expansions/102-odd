@@ -1,0 +1,2 @@
+#!/bin/bash
+grep -n . | tr '2:4:6:8:0:' 'D:D:D:D:D:' | grep -v 'D:' | cut -d':' -f2
