@@ -1,2 +1,2 @@
 #!/bin/bash
-cat test | grep -n . | tr '0:' 'D:' | tr '2:' 'D:' | tr '4:' 'D:' | tr '6:' 'D:' | tr '8:' 'D:' | grep -v 'D:' | cut -d':' -f2
+grep -n . | tr '0:' 'D:' | tr '2:' 'D:' | tr '4:' 'D:' | tr '6:' 'D:' | tr '8:' 'D:' | grep -v 'D:' | cut -d':' -f2
