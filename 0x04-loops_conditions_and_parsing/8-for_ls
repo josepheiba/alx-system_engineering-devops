@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# a comment explaining what it is doing
+files=$(ls)
+for file in $files; do 
+  name="${file#*-}"
+  echo "$name"
+done
