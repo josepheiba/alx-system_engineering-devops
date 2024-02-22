@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
 j=12
-k=59
 i=0
 minutes=60
-seconds=60
+((j = j + 1))
 while ((i < j)); do
   echo "Hour: $i"
   m=1
