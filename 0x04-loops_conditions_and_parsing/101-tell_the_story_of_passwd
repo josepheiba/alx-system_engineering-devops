@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-while IFS=":" read -r username _ userid groupid userinfo homedir shell; do
+while IFS=":" read -r username _ userid groupid _ homedir shell; do
     # Display information in the specified format
-    echo "The user $username is part of the $groupid gang, lives in $homedir, and rides ${shell:-N/A}."
-    echo "${userid:-N/A}'s place is protected, more info about the user here: ${userinfo:-N/A}"
+    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. $userid's place is protected by the passcode x, more info about the user here: $username"
 done < "/etc/passwd"
