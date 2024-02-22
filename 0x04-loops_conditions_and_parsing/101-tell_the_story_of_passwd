@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-while IFS=":" read -r username x userid groupid userinfo homedir shell; do
+while IFS=":" read -r username _ userid groupid userinfo homedir shell; do
     # Extract password from /etc/shadow
     password=$(grep "^$username:" /etc/shadow | cut -d: -f2)
     # Display information in the specified format
-    echo "The user $username is part of the $groupid gang, lives in $homedir, and rides ${shell:-N/A}."
-    echo "${userid:-N/A}'s place is protected by the passcode ${password:-N/A}, more info about the user here: ${userinfo:-N/A}"
+    echo "The user $username is part of the $groupid gang, lives in $homedir, and rides $shell."
+    echo "User ID's place is protected by the passcode $password, more info about the user here: $userid $userinfo"
 done < "/etc/passwd"
