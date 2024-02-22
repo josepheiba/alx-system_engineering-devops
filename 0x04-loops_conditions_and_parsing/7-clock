@@ -7,7 +7,7 @@ minutes=60
 seconds=60
 while ((i < j)); do
   echo "Hour: $i"
-  m=0
+  m=1
   while ((m < minutes)); do
     echo $m
     ((m = m + 1))
@@ -17,7 +17,7 @@ done
 i=0
 while ((i < k)); do
   echo "Minute: $i"
-  m=0
+  m=1
   while ((m < seconds)); do
     echo $m
     ((m = m + 1))
