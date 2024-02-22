@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-while read -r username password uid gid _ home shell; do
-    echo "The user $username is part of the $gid gang, lives in $home and rides $shell. $uid's place is protected by the passcode $password, more info about the user here: $username"
+while read -r username password uid gid user_info home shell; do
+    # Extract group name based on the group ID
+    group_name=$(getent group "$gid" | cut -d: -f1)
+    
+    # Display the information as per the specified format
+    echo "The user $username is part of the $group_name gang, lives in $home and rides $shell. $uid's place is protected by the passcode $password, more info about the user here: $user_info"
 done < /etc/passwd
