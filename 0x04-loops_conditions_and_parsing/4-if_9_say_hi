@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
 i=0
-while ((i < 10)); do
+while ((i < 11)); do
   ((i = i + 1))
-  if ((i == 9)); then
+  if ((i == 10)); then
     echo "Hi"
   else
     echo "Best School"
