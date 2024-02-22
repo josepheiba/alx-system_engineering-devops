@@ -14,13 +14,3 @@ while ((i < j)); do
   done
   ((i = i + 1))
 done
-i=0
-while ((i < k)); do
-  echo "Minute: $i"
-  m=1
-  while ((m < seconds)); do
-    echo $m
-    ((m = m + 1))
-  done
-  ((i = i + 1))
-done
