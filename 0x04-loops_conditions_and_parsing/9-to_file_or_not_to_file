@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# a comment explaining what it is doing
+file="School"
+if [[ -e $file ]]; then
+  echo "school file exists"
+  if [[ -s $file ]]; then
+    echo "school file is empty"
+  else
+    echo "school file is not empty"
+  if [[ -f $file ]]; then
+    echo "school is a regular file"
+  fi
+  fi
+else
+  echo "school file does not exist"
+fi
