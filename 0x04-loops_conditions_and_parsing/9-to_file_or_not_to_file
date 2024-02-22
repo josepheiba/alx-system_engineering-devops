@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-file="School"
+file="school"
 if [[ -e $file ]]; then
   echo "school file exists"
   if [[ -s $file ]]; then
