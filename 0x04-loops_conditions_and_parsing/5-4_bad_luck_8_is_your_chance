@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# a comment explaining what it is doing
+i=0
+while ((i < 10)); do
+  if ((i == 3)); then
+    echo "bed luck"
+  elif ((i == 7)); then
+    echo "good luck"
+  else
+    echo "Best School"
+  fi
+  ((i = i + 1))
+done
