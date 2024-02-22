@@ -6,6 +6,6 @@ while ((i < 10)); do
   if ((i == 9)); then
     echo "Hi"
   else
-    echo "Bset School"
+    echo "Best School"
   fi
 done
