@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-while IFS=":" read -r username _ userid _ groupid _ homedir shell; do
-    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. $userid's place is protected by the passcode x, more info about the user here: $username"
+while IFS=":" read -r username password userid groupid userinfo homedir shell; do
+    echo "The user $username is part of the $groupid gang, lives in $homedir and rides $shell. $userid's place is protected by the passcode $password, more info about the user here: $username"
 done < "/etc/passwd"
