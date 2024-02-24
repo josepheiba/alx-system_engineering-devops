@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
 # shellcheck disable=SC2009
-pgrep -l . | grep bash
+pgrep -l . | grep 4-to_infinity_and_beyond
