@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
+# shellcheck disable=SC2009
 pgrep -l . | grep bash
