@@ -1,21 +1,24 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-file=/var/run/holbertonscript.pid
-function finishQuit {
-    sudo rm $file
-    exit
+pid_file="/var/run/myscript.pid"
+
+# Function to handle termination signals
+cleanup() {
+    echo "Deleting PID file and terminating..."
+    rm -f "$pid_file"
+    exit 0
 }
-function finishTerm {
-    echo 'I hate the kill command'
-    sudo rm $file
-    exit
-}
-trap finishTerm SIGTERM
-trap finishQuit SIGQUIT
-trap "echo 'Y U no love me?!'" SIGINT
-sudo bash -c "echo $$ > $file"
-while ((1))
-do
+
+# Trap signals
+trap 'cleanup' SIGQUIT SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'echo "I hate the kill command"' SIGTERM
+
+# Create PID file
+echo $$ > "$pid_file"
+
+# Display message indefinitely
+while true; do
     echo "To infinity and beyond"
-    sleep 2
+    sleep 1
 done
