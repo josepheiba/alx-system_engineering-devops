@@ -1,24 +1,18 @@
 #!/usr/bin/env bash
-# a comment explaining what it is doing
-pid_file="/var/run/myscript.pid"
+#Write a Bash script that:
 
-# Function to handle termination signals
-cleanup() {
-    echo "Deleting PID file and terminating..."
-    rm -f "$pid_file"
-    exit 0
+terminator() {
+  rm /var/run/myscript.pid
+  exit
 }
 
-# Trap signals
-trap 'cleanup' SIGQUIT SIGTERM
-trap 'echo "Y U no love me?!"' SIGINT
-trap 'echo "I hate the kill command"' SIGTERM
+echo "$$" > /var/run/myscript.pid
 
-# Create PID file
-echo $$ > "$pid_file"
-
-# Display message indefinitely
-while true; do
-    echo "To infinity and beyond"
-    sleep 1
+while true
+do
+  echo "To infinity and beyond"
+  sleep 2
+  trap 'echo "Y U no love me?!"' SIGINT
+  trap 'echo "I hate the kill command" && terminator' SIGTERM
+  trap 'terminator' SIGQUIT
 done
