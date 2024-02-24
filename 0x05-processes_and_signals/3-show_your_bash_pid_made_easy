@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 # a comment explaining what it is doing
-while true; do
-  echo "To infinity and beyond"
-  sleep 2
-done
+# shellcheck disable=SC2009
+pgrep -l . | grep bash
