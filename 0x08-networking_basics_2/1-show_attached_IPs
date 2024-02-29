@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# a comment explaining what it is doing
+ifconfig | grep "inet " | awk {'print $2'}
