@@ -1,4 +1,7 @@
 # kill_process.pp
 
-exec {'pkill killmenow':
+exec { 'killmenow':
+  command     => 'pkill killmenow',
+  path        => '/usr/bin',
+  refreshonly => true,
 }
