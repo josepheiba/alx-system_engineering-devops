@@ -1,30 +1,21 @@
 #!/usr/bin/env bash
 # installs nginx
 
-apt-get update -y
-apt-get install -y nginx
+sudo apt-get update -y -qq && \
+	 sudo apt-get install nginx -y
 
-cat > /etc/nginx/sites-available/default << EOL
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+# starting nginx service
+sudo service nginx start
 
-    root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
+# allowing nginx on firewall
+sudo ufw allow 'Nginx HTTP'
 
-    server_name _;
+# Give the user ownership to website files for easy editing
+sudo chown -R "$USER":"$USER" /var/www/html
+sudo chmod -R 755 /var/www
 
-    location / {
-        try_files \$uri \$uri/ =404;
-    }
+cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
 
-    location = / {
-        echo "Hello World!";
-    }
-}
-EOL
+echo -e "Hello World!" | dd status=none of=/var/www/html/index.nginx-debian.html
 
-mkdir -p /var/www/html
-echo "Hello World!" > /var/www/html/index.html
-
-service nginx restart
+sudo service nginx restart
