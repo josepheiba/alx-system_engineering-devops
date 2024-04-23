@@ -24,18 +24,7 @@ server {
 EOF
 
 cat > /var/www/html/index.html <<EOF
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Web-01 ROOT</title>
-  </head>
-  <body>
-    <h1>Holberton School</h1>
-    <h3>Project being developed by Julius Mwangi, the tech genius</h3>
-    <h3>Thanks to our mentors, fellow peers, and everyone associated with the ALX program</h3>
-    <h3>Really appreciate the good work done by you -> ALX team</h3>
-  </body>
-</html>
+Hello World!
 EOF
 
 service nginx restart
