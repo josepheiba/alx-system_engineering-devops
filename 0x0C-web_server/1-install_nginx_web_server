@@ -3,11 +3,6 @@
 
 sudo apt-get update -y
 sudo apt-get install nginx -y
-echo 'server {
-    listen 80;
-    server_name _;
-    location / {
-        echo "Hello World!";
-    }
-}' > /etc/nginx/sites-available/default
-service nginx restart
+file1=/usr/share/nginx/html/index.html
+sudo bash -c "echo 'Hello World!' > $file1"
+service nginx start
