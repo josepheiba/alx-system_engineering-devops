@@ -2,8 +2,17 @@
 # set up a custom header
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo sed -i "47i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
-echo "Hello World!" | sudo tee /var/www/html/index.html
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
-sudo service nginx start
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+printf %s "server {
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /etc/nginx/html;
+     index       index.html index.htm;
+     add_header  X-Served-By $HOSTNAME;
+}
+" > /etc/nginx/sites-available/default
+
+service nginx restart
