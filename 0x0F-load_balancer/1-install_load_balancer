@@ -1,26 +1,11 @@
 #!/usr/bin/env bash
 # set up a custom header
-apt-get install -y --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.6
-apt-get update
-apt-get install -y haproxy=2.6.\*
+sudo apt-get -y install software-properties-common
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.5
+sudo apt-get -y update
 
-echo "ENABLED=1" >> /etc/default/haproxy
-
-cp /etc/haproxy/haproxy.cfg{,.bak}
-
-
-printf %s "
-frontend http_front
-    bind *:80
-    mode http
-    default_backend http_back
-
-backend http_back
-    mode http
-    balance roundrobin
-    server 531161-web-01 54.162.2.155:80 check
-    server 531161-web-02 34.205.65.75:80 check
-" >> /etc/haproxy/haproxy.cfg
-
-service haproxy restart
+# Install HAProxy
+sudo apt-get -y install haproxy
+sudo sed -i -e '$aENABLED=1\n' /etc/default/haproxy
+sudo sed -i -e '$a\listen http-in\n\tbind :80\n\tbalance roundrobin\n\tserver 531161-web-01 54.208.177.196:80 check\n\tserver 531161-web-02 54.54.209.3.37:80 check\n' /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
