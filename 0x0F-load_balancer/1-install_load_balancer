@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# set up a custom header
+sudo apt install -y haproxy=1.5\*
+file=/etc/haproxy/haproxy.cfg
+sudo echo -e "frontend haproxynode
+\tbind *:80
+\tmode http
+\tdefault_backend nodes" | sudo tee -a $file
+sudo echo -e "backend nodes
+\tmode http
+\tbalance roundrobin
+\toption forwardfor
+\thttp-request set-header X-Forwarded-Port %[dst_port]
+\tserver 274-web-01 35.231.71.122:80 check
+\tserver 274-web-02 35.196.73.169:80 check" | sudo tee -a $file
+sudo service haproxy restart
