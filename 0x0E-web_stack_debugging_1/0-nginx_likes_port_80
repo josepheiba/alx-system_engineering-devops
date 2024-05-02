@@ -4,5 +4,5 @@ echo "
 server {
         listen 80 default_server;
 }
-"
+" > sudo tee default >/dev/null
 sudo service nginx restart
