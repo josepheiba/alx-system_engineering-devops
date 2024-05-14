@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # whoami
-sudo chmod 0644 /etc/nginx/nginx.conf
+sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
+sed -i "s/80/8080/g" /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
 pkill apache2
-sudo sed -i 's/user\s*nginx;/user nginx nginx;/' /etc/nginx/nginx.conf
-sudo sed -i 's/listen\s*80;/listen *:8080;/' /etc/nginx/sites-available/default
 sudo -u nginx service nginx restart
