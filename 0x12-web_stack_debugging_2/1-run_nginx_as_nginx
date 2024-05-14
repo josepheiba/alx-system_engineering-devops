@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # whoami
-sed -i 's/user\s*nginx;/user nginx nginx;/' /etc/nginx/nginx.conf
-sed -i 's/listen\s*80;/listen *:8080;/' /etc/nginx/sites-available/default
-service nginx restart
+sudo sed -i 's/user\s*nginx;/user nginx nginx;/' /etc/nginx/nginx.conf
+sudo sed -i 's/listen\s*80;/listen *:8080;/' /etc/nginx/sites-available/default
+sudo service nginx restart
