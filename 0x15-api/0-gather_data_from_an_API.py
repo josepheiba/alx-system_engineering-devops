@@ -33,8 +33,8 @@ if __name__ == '__main__':
             if todo['completed'] is True:
                 tasks_completed += 1
 
-    print("Employee {} is done with".format(result_users['name']), end='')
-    print(" tasks({}/{}):".format(tasks_completed, number_of_tsks))
+    print(f"Employee {result_users['name']} is done with", end='')
+    print(f" tasks({tasks_completed}/{number_of_tsks}):")
     for todo in user_todos:
         if todo['completed'] is True:
             print(f"\t {todo['title']}")
