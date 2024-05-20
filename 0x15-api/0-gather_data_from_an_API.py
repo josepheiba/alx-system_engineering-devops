@@ -4,6 +4,9 @@ import json
 from sys import argv
 
 if __name__ == '__main__':
+    """
+    main function
+    """
     argc = len(argv)
     user_id = argv[1]
     tasks_completed = 0
