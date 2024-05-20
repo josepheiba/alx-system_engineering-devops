@@ -2,9 +2,9 @@
 """
 this code will get data from api and process it
 """
-import requests
 import json
 from sys import argv
+import requests
 
 if __name__ == '__main__':
     """
