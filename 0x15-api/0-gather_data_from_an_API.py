@@ -3,8 +3,8 @@
 this code will get data from api and process it
 """
 import json
-import sys
 import requests
+import sys
 
 if __name__ == '__main__':
     """
