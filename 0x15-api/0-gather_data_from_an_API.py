@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+this code will get data from api and process it
+"""
 import requests
 import json
 from sys import argv
