@@ -3,15 +3,15 @@
 this code will get data from api and process it
 """
 import json
-from sys import argv
+import sys
 import requests
 
 if __name__ == '__main__':
     """
     main function
     """
-    argc = len(argv)
-    user_id = argv[1]
+    argc = len(sys.argv)
+    user_id = sys.argv[1]
     tasks_completed = 0
     number_of_tsks = 0
 
