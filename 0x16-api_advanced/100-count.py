@@ -4,7 +4,6 @@ file of number of subscribers method
 """
 import re
 import requests
-import sys
 
 
 def add_title(dictionary, hot_posts):
