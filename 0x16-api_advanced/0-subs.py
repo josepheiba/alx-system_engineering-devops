@@ -2,21 +2,20 @@
 """
 0-subs.py
 """
-import requests
+from requests import get
 from sys import argv
 
 
 def number_of_subscribers(subreddit):
     """
-    function method
+    0-subs.py
     """
-    response = requests.get('https://www.reddit.com/r/'
-                            + subreddit + '/about.json')
-    response.raise_for_status()
-    data = response.json()
-    if 'data' in data:
-        return (data['data']['subscribers'])
-    else:
+    head = {'User-Agent': 'Mozilla/5.0'}
+    count = get('https://www.reddit.com/r/{}/about.json'.format(
+        subreddit), headers=head).json()
+    try:
+        return count.get('data').get('subscribers')
+    except:
         return 0
 
 
