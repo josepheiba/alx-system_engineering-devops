@@ -4,6 +4,7 @@
 """
 from requests import get
 from sys import argv
+import requests
 
 
 def number_of_subscribers(subreddit):
@@ -15,7 +16,9 @@ def number_of_subscribers(subreddit):
         subreddit), headers=head).json()
     try:
         return count.get('data').get('subscribers')
-    except:
+    except requests.exceptions.HTTPError:
+        return 0
+    except requests.exceptions.RequestException:
         return 0
 
 
