@@ -1,0 +1,21 @@
+[Unit]
+Description=Gunicorn instance for AirBnB API and Web Dynamic
+After=network.target
+
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/AirBnB_clone_v4
+Environment="HBNB_MYSQL_USER=hbnb_dev"
+Environment="HBNB_MYSQL_PWD=hbnb_dev_pwd"
+Environment="HBNB_MYSQL_HOST=localhost"
+Environment="HBNB_MYSQL_DB=hbnb_dev_db"
+Environment="HBNB_TYPE_STORAGE=db"
+ExecStart=gunicorn --bind 0.0.0.0:5002 api.v1.app:app
+            --bind 0.0.0.0:5003 web_dynamic.2-hbnb:app
+StandardOutput=file:/tmp/combined-access.log
+StandardError=file:/tmp/combined-error.log
+
+[Install]
+WantedBy=multi-user.target
+
