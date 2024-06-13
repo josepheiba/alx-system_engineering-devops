@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Gracefully reloads Gunicorn.
 
-# Find all Gunicorn processes and restart them gracefully
-pgrep gunicorn | xargs -r kill -HUP
+ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
