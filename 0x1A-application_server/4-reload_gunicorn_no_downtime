@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Find all Gunicorn processes and store their PIDs
+pids=$(pgrep gunicorn)
+
+# Gracefully restart each Gunicorn worker
+for pid in $pids; do
+    # Send SIGUSR1 signal to gracefully restart the worker
+    kill -s SIGUSR1 $pid
+done
+
+echo "Gunicorn workers restarted gracefully"
+
