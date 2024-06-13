@@ -8,7 +8,7 @@ server {
         proxy_redirect off;
     }
     location / {
-        proxy_pass http://localhost:5003;
+        proxy_pass http://localhost:5003/2-hbnb;
         include /etc/nginx/proxy_params;
         proxy_redirect off;
     }
